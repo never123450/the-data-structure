@@ -1,44 +1,55 @@
-import arithmetic.BinarySearchTree.BST;
+package arithmetic.BinarySearchTree;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        BST<Integer> bst = new BST<>();
-        Random random = new Random();
+//        BST<Integer> bst = new BST<>();
+//        Random random = new Random();
+//
+//        int n = 1000;
+//
+//        // test removeMin
+//        for(int i = 0 ; i < n ; i ++)
+//            bst.add(random.nextInt(10000));
+//
+//        ArrayList<Integer> nums = new ArrayList<>();
+//        while(!bst.isEmpty())
+//            nums.add(bst.removeMin());
+//
+//        System.out.println(nums);
+//        for(int i = 1 ; i < nums.size() ; i ++)
+//            if(nums.get(i - 1) > nums.get(i))
+//                throw new IllegalArgumentException("Error!");
+//        System.out.println("removeMin test completed.");
+//
+//
+//        // test removeMax
+//        for(int i = 0 ; i < n ; i ++)
+//            bst.add(random.nextInt(10000));
+//
+//        nums = new ArrayList<>();
+//        while(!bst.isEmpty())
+//            nums.add(bst.removeMax());
+//
+//        System.out.println(nums);
+//        for(int i = 1 ; i < nums.size() ; i ++)
+//            if(nums.get(i - 1) < nums.get(i))
+//                throw new IllegalArgumentException("Error!");
+//        System.out.println("removeMax test completed.");
 
-        int n = 1000;
-
-        // test removeMin
-        for(int i = 0 ; i < n ; i ++)
-            bst.add(random.nextInt(10000));
-
-        ArrayList<Integer> nums = new ArrayList<>();
-        while(!bst.isEmpty())
-            nums.add(bst.removeMin());
-
-        System.out.println(nums);
-        for(int i = 1 ; i < nums.size() ; i ++)
-            if(nums.get(i - 1) > nums.get(i))
-                throw new IllegalArgumentException("Error!");
-        System.out.println("removeMin test completed.");
+        System.out.println("pride and Prejudice");
+        ArrayList<String> words1 = new ArrayList<>();
+         FileOperation.readFile("pride-and-prejudice.txt",words1);
+        System.out.println("total wards :" + words1.size());
 
 
-        // test removeMax
-        for(int i = 0 ; i < n ; i ++)
-            bst.add(random.nextInt(10000));
+        System.out.println("a-tale-of-two-cities");
+        ArrayList<String> words2 = new ArrayList<>();
+        FileOperation.readFile("a-tale-of-two-cities.txt",words2);
+        System.out.println("total wards :" + words2.size());
 
-        nums = new ArrayList<>();
-        while(!bst.isEmpty())
-            nums.add(bst.removeMax());
-
-        System.out.println(nums);
-        for(int i = 1 ; i < nums.size() ; i ++)
-            if(nums.get(i - 1) < nums.get(i))
-                throw new IllegalArgumentException("Error!");
-        System.out.println("removeMax test completed.");
     }
 }

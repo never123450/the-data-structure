@@ -1,5 +1,10 @@
 package arithmetic.LinkedList;
 
+import arithmetic.BinarySearchTree.FileOperation;
+import arithmetic.BinarySearchTree.LinkedListSet;
+
+import java.util.ArrayList;
+
 public class LinkedList<E> {
 
     private class Node {
@@ -149,6 +154,25 @@ public class LinkedList<E> {
         return false;
     }
 
+    // 从链表中删除元素e
+    public void removeElement(E e){
+
+        Node prev = dummyHead;
+        while(prev.next != null){
+            if(prev.next.e.equals(e))
+                break;
+            prev = prev.next;
+        }
+
+        if(prev.next != null){
+            Node delNode = prev.next;
+            prev.next = delNode.next;
+            delNode.next = null;
+            size --;
+        }
+    }
+
+
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
@@ -202,6 +226,36 @@ public class LinkedList<E> {
     //从链表中删除最后一个元素，返回删除的元素
     public E removeEnd() {
         return remove(size - 1);
+    }
+
+    public static void main(String[] args) {
+
+        System.out.println("Pride and Prejudice");
+
+        ArrayList<String> words1 = new ArrayList<>();
+        if(FileOperation.readFile("pride-and-prejudice.txt", words1)) {
+            System.out.println("Total words: " + words1.size());
+
+            LinkedListSet<String> set1 = new LinkedListSet<>();
+            for (String word : words1)
+                set1.add(word);
+            System.out.println("Total different words: " + set1.getSize());
+        }
+
+        System.out.println();
+
+
+        System.out.println("A Tale of Two Cities");
+
+        ArrayList<String> words2 = new ArrayList<>();
+        if(FileOperation.readFile("a-tale-of-two-cities.txt", words2)){
+            System.out.println("Total words: " + words2.size());
+
+            LinkedListSet<String> set2 = new LinkedListSet<>();
+            for(String word: words2)
+                set2.add(word);
+            System.out.println("Total different words: " + set2.getSize());
+        }
     }
 
 }
